@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>EEZ Studio</title>
+
+        <link
+            rel="preload"
+            href="../eez-studio-ui/_stylesheets/MaterialIcons-Regular.woff2"
+            as="font"
+            type="font/woff2"
+        />
+        <link
+            rel="preload"
+            href="../eez-studio-ui/_stylesheets/FontAwesome5-Solid+Brands+Regular.woff"
+            as="font"
+            type="font/woff2"
+        />
+        <link
+            id="bootstrap-css"
+            rel="stylesheet"
+            type="text/css"
+            href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../eez-studio-ui/_stylesheets/material-icons.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../../node_modules/react-toastify/dist/ReactToastify.min.css"
+        />
+
+        <script>
+            var $ = (jQuery = require("jquery/dist/jquery.min"));
+        </script>
+
+        <!-- Flex Layout -->
+        <link
+            id="flexlayout-css"
+            type="text/css"
+            rel="stylesheet"
+            href="../../node_modules/flexlayout-react/style/light.css"
+        />
+
+        <!-- jsPanel4 -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../../node_modules/jspanel4/dist/jspanel.min.css"
+        />
+        <style>
+            .jsPanel-modal-backdrop {
+                animation: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                z-index: 1000 !important;
+            }
+            .jsPanel-modal-backdrop-out {
+                animation: none;
+            }
+            .jsPanel-modal-backdrop-multi {
+                background: transparent;
+            }
+            .jsPanel-modal {
+                z-index: 1001 !important;
+            }
+        </style>
+        <script src="../../node_modules/jspanel4/dist/jspanel.min.js"></script>
+        <script src="../../node_modules/jspanel4/dist/extensions/modal/jspanel.modal.min.js"></script>
+        <script src="../../node_modules/jspanel4/dist/extensions/layout/jspanel.layout.min.js"></script>
+
+        <!-- ace -->
+        <script src="../../libs/brace-0.11.1/index.js"></script>
+
+        <script src="../../libs/brace-0.11.1/mode/c_cpp.js"></script>
+        <script src="../../libs/brace-0.11.1/mode/css.js"></script>
+        <script src="../../libs/brace-0.11.1/mode/json.js"></script>
+        <script src="../../libs/brace-0.11.1/mode/javascript.js"></script>
+        <script src="../../libs/brace-0.11.1/mode/python.js"></script>
+        <script src="../../libs/brace-0.11.1/mode/scpi.js"></script>
+        <script src="../../libs/brace-0.11.1/theme/github.js"></script>
+        <script src="../../libs/brace-0.11.1/theme/dracula.js"></script>
+        <script src="../../libs/brace-0.11.1/ext/searchbox.js"></script>
+
+        <script src="../../libs/component-doc.js"></script>
+
+        <!--- trix -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../../libs/trix/trix.css"
+        />
+        <script type="text/javascript" src="../../libs/trix/trix.js"></script>
+
+        <!-- d3-format -->
+        <script
+            type="text/javascript"
+            src="../../node_modules/d3-format/dist/d3-format.min.js"
+        ></script>
+
+        <link
+            rel="preload"
+            href="../eez-studio-ui/_stylesheets/Roboto-Regular.ttf"
+            as="font"
+            type="font/ttf"
+        />
+        <link
+            rel="preload"
+            href="../eez-studio-ui/_stylesheets/RobotoMono-Regular.ttf"
+            as="font"
+            type="font/ttf"
+        />
+
+        <link
+            id="main-css"
+            rel="stylesheet"
+            type="text/css"
+            href="../eez-studio-ui/_stylesheets/main.css"
+        />
+    </head>
+
+    <body spellcheck="false">
+        <div id="EezStudio_Content"></div>
+        <div id="EezStudio_ModalContent"></div>
+
+        <script>
+            const isDev = /[\\/]node_modules[\\/]electron[\\/]/.test(
+                process.execPath
+            );
+            process.env.NODE_ENV = isDev ? "development" : "production";
+            require("app-module-path").addPath(__dirname + "/..");
+            require("./main.js");
+        </script>
+    </body>
+</html>

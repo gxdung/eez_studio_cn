@@ -1,0 +1,11 @@
+{
+    "name": "eez-studio-shortcuts",
+    "version": "1.0.0",
+    "author": "Envox",
+    "eez-studio": {
+        "main": "shortcuts-extension.js"
+    },
+    "dependencies": {
+        "eez-studio-shortcuts": "file:"
+    }
+}

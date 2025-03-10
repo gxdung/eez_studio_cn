@@ -1,0 +1,11 @@
+{
+    "name": "eez-studio-home",
+    "version": "1.0.0",
+    "author": "Envox",
+    "eez-studio": {
+        "main": "home-extension.js"
+    },
+    "dependencies": {
+        "eez-studio-home": "file:"
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "rules": {
+        "no-unused-expression": true,
+        "no-duplicate-variable": true,
+        "no-unused-variable": true,
+        "curly": true,
+        "class-name": true,
+        "semicolon": false,
+        "triple-equals": false,
+        "arrow-parens": false,
+        "trailing-comma": false,
+        "no-console": false,
+        "radix": false,
+        "ordered-imports": false,
+        "no-var-requires": false,
+        "member-access": false,
+        "object-literal-sort-keys": false,
+        "max-classes-per-file": false,
+        "no-bitwise": false
+    },
+    "extends": [
+        /*"tslint:recommended", "tslint-sonarts"*/
+    ]
+}
