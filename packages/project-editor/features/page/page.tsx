@@ -112,22 +112,26 @@ export class PageOrientation extends EezObject {
             },
             {
                 name: "width",
+                displayName: "宽度",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup
             },
             {
                 name: "height",
+                displayName: "高度",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup
             },
             {
                 name: "style",
+                displayName: "样式",
                 type: PropertyType.ObjectReference,
                 referencedObjectCollectionPath: "allStyles",
                 propertyGridGroup: styleGroup
             },
             {
                 name: "components",
+                displayName: "组件",
                 type: PropertyType.Array,
                 typeClass: Component,
                 hideInPropertyGrid: true
@@ -282,6 +286,7 @@ export class Page extends Flow {
             },
             {
                 name: "name",
+                displayName: "名称",
                 type: PropertyType.String,
                 unique: (
                     page: Page,
@@ -319,52 +324,60 @@ export class Page extends Flow {
             },
             {
                 name: "codeIdentifier",
+                displayName: "代码标识符",
                 type: PropertyType.String,
                 propertyGridGroup: generalGroup,
                 computed: true,
-                formText: `This identifier will be used in the generated source code in the "Objects" struct. It is different from the "Name" above because in the source code we are following "lowercase with underscore" naming convention.`,
+                formText: `该标识符将在生成的源代码中的 "Objects" 结构体中使用。它与上面的 "Name" 不同，因为在源代码中我们遵循 "小写加下划线" 的命名规范。`,
                 disabled: (object: Page) => object.codeIdentifier == undefined
             },
             {
                 name: "description",
+                displayName: "描述",
                 type: PropertyType.MultilineText,
                 propertyGridGroup: generalGroup
             },
             {
                 name: "dataContextOverrides",
-                displayName: "Data context",
+                displayName: "数据上下文",
                 type: PropertyType.JSON,
                 propertyGridGroup: generalGroup,
                 disabled: isLVGLProject
             },
             {
                 name: "left",
+                displayName: "左侧",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup
             },
             {
                 name: "top",
+                displayName: "顶部",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup
             },
             {
                 name: "width",
+                displayName: "宽度",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup
             },
             {
                 name: "height",
+                displayName: "高度",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup
             },
             {
                 name: "scaleToFit",
+                displayName: "自适应缩放",
                 type: PropertyType.Boolean,
                 propertyGridGroup: geometryGroup,
                 disabled: isLVGLProject
             },
             {
                 name: "style",
+                displayName: "样式",
                 type: PropertyType.ObjectReference,
                 referencedObjectCollectionPath: "allStyles",
                 propertyGridGroup: styleGroup,
@@ -372,6 +385,7 @@ export class Page extends Flow {
             },
             {
                 name: "usedIn",
+                displayName: "作用域",
                 type: PropertyType.ConfigurationReference,
                 referencedObjectCollectionPath: "settings/build/configurations",
                 propertyGridGroup: generalGroup,
@@ -380,6 +394,7 @@ export class Page extends Flow {
             },
             {
                 name: "portrait",
+                displayName: "纵向",
                 type: PropertyType.Object,
                 typeClass: PageOrientation,
                 isOptional: true,
@@ -388,12 +403,14 @@ export class Page extends Flow {
             },
             {
                 name: "isUsedAsUserWidget",
+                displayName: "作为用户组件使用",
                 type: PropertyType.Boolean,
                 propertyGridGroup: generalGroup,
                 hideInPropertyGrid: true
             },
             {
                 name: "closePageIfTouchedOutside",
+                displayName: "触摸外部时关闭页面",
                 type: PropertyType.Boolean,
                 propertyGridGroup: generalGroup,
                 disabled: object =>
@@ -401,6 +418,7 @@ export class Page extends Flow {
             },
             {
                 name: "createAtStart",
+                displayName: "启动时创建",
                 type: PropertyType.Boolean,
                 propertyGridGroup: generalGroup,
                 checkboxStyleSwitch: true,
@@ -412,7 +430,7 @@ export class Page extends Flow {
             },
             {
                 name: "deleteOnScreenUnload",
-                displayName: "Delete on unload",
+                displayName: "屏幕卸载时删除",
                 type: PropertyType.Boolean,
                 propertyGridGroup: generalGroup,
                 checkboxStyleSwitch: true,
@@ -668,7 +686,7 @@ export class Page extends Flow {
                     messages.push(
                         new Message(
                             MessageType.WARNING,
-                            `Width (${page.width}) is different from display width (${projectStore.project.settings.general.displayWidth})`,
+                            `宽度 (${page.width}) 与显示宽度 (${projectStore.project.settings.general.displayWidth}) 不同`,
                             getChildOfObject(page, "width")
                         )
                     );
@@ -681,7 +699,7 @@ export class Page extends Flow {
                     messages.push(
                         new Message(
                             MessageType.ERROR,
-                            `Width must be between 1 and ${MAX_WIDTH}`,
+                            `宽度必须在 1 和 ${MAX_WIDTH} 之间`,
                             getChildOfObject(page, "width")
                         )
                     );
@@ -698,7 +716,7 @@ export class Page extends Flow {
                     messages.push(
                         new Message(
                             MessageType.WARNING,
-                            `Height (${page.height}) is different from display height (${projectStore.project.settings.general.displayHeight})`,
+                            `高度 (${page.height}) 与显示高度 (${projectStore.project.settings.general.displayHeight}) 不同`,
                             getChildOfObject(page, "height")
                         )
                     );
@@ -708,7 +726,7 @@ export class Page extends Flow {
                     messages.push(
                         new Message(
                             MessageType.ERROR,
-                            `Height must be between 1 and ${MAX_HEIGHT}`,
+                            `高度必须在 1 和 ${MAX_HEIGHT} 之间`,
                             getChildOfObject(page, "height")
                         )
                     );
@@ -1219,10 +1237,10 @@ registerClass("Page", Page);
 const feature: ProjectEditorFeature = {
     name: "eezstudio-project-feature-page",
     version: "0.1.0",
-    description: "Pages support for your project",
+    description: "Pages 支持",
     author: "EEZ",
     authorLogo: "../eez-studio-ui/_images/eez_logo.png",
-    displayName: "Pages",
+    displayName: "页面",
     mandatory: true,
     key: "userPages",
     type: PropertyType.Array,

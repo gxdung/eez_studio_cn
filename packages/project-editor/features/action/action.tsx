@@ -210,7 +210,7 @@ export class Action extends Flow {
             },
             {
                 name: "implementationType",
-                displayName: "实现类型",
+                displayName: "函数类型",
                 type: PropertyType.Enum,
                 enumItems: [
                     {
@@ -319,7 +319,7 @@ export class Action extends Flow {
                         },
                         {
                             name: "implementationType",
-                            displayName: "实现类型",
+                            displayName: "函数类型",
                             type: "enum",
                             enumItems: [
                                 {
@@ -410,11 +410,7 @@ const feature: ProjectEditorFeature = {
     check: (projectStore, object: EezObject[], messages: IMessage[]) => {
         if (object.length > 32000) {
             messages.push(
-                new Message(
-                    MessageType.ERROR,
-                    "Max. 32000 actions are supported",
-                    object
-                )
+                new Message(MessageType.ERROR, "最大支持 32000 个操作", object)
             );
         }
     }
