@@ -216,7 +216,7 @@ export function makeDataPropertyInfo(
                         propertyInfo,
                         {
                             assignableExpression: false,
-                            title: "Expression Builder"
+                            title: "表达式构建器"
                         },
                         params
                     );
@@ -1461,34 +1461,34 @@ const AlignAndDistributePropertyGridUI = observer(
                             <div className="EezStudio_ActionGroup_Actions_Group">
                                 <IconAction
                                     icon={ALIGN_HORIZONTAL_LEFT_ICON()}
-                                    title="Align left edges"
+                                    title="左对齐"
                                     onClick={this.onAlignHorizontalLeft}
                                 />
                                 <IconAction
                                     icon={ALIGN_HORIZONTAL_CENTER_ICON()}
-                                    title="Center on vertical axis"
+                                    title="垂直居中"
                                     onClick={this.onAlignHorizontalCenter}
                                 />
                                 <IconAction
                                     icon={ALIGN_HORIZONTAL_RIGHT_ICON()}
-                                    title="Align right edges"
+                                    title="右对齐"
                                     onClick={this.onAlignHorizontalRight}
                                 />
                             </div>
                             <div className="EezStudio_ActionGroup_Actions_Group">
                                 <IconAction
                                     icon={ALIGN_VERTICAL_TOP_ICON()}
-                                    title="Align top edges"
+                                    title="顶部对齐"
                                     onClick={this.onAlignVerticalTop}
                                 />
                                 <IconAction
                                     icon={ALIGN_VERTICAL_CENTER_ICON()}
-                                    title="Center on horizontal axis"
+                                    title="水平居中"
                                     onClick={this.onAlignVerticalCenter}
                                 />
                                 <IconAction
                                     icon={ALIGN_VERTICAL_BOTTOM_ICON()}
-                                    title="Align bottom edges"
+                                    title="底部对齐"
                                     onClick={this.onAlignVerticalBottom}
                                 />
                             </div>
@@ -1503,28 +1503,28 @@ const AlignAndDistributePropertyGridUI = observer(
                                 <div className="EezStudio_ActionGroup_Actions_Group">
                                     <IconAction
                                         icon={DISTRIBUTE_HORIZONTAL_LEFT_ICON()}
-                                        title="Distribute left edges equidistantly"
+                                        title="靠左等距分布"
                                         onClick={
                                             this.onDistributeHorizontalLeft
                                         }
                                     />
                                     <IconAction
                                         icon={DISTRIBUTE_HORIZONTAL_CENTER_ICON()}
-                                        title="Distribute centers equidistantly horizontally"
+                                        title="水平等距中心分布"
                                         onClick={
                                             this.onDistributeHorizontalCenter
                                         }
                                     />
                                     <IconAction
                                         icon={DISTRIBUTE_HORIZONTAL_RIGHT_ICON()}
-                                        title="Distribute right edges equidistantly"
+                                        title="靠右等距分布"
                                         onClick={
                                             this.onDistributeHorizontalRight
                                         }
                                     />
                                     <IconAction
                                         icon={DISTRIBUTE_HORIZONTAL_GAPS_ICON()}
-                                        title="Make horizontal gaps equal"
+                                        title="水平间距相等"
                                         onClick={
                                             this.onDistributeHorizontalGaps
                                         }
@@ -1533,26 +1533,26 @@ const AlignAndDistributePropertyGridUI = observer(
                                 <div className="EezStudio_ActionGroup_Actions_Group">
                                     <IconAction
                                         icon={DISTRIBUTE_VERTICAL_TOP_ICON()}
-                                        title="Distribute top edges equidistantly"
+                                        title="顶部等距分布"
                                         onClick={this.onDistributeVerticalTop}
                                     />
                                     <IconAction
                                         icon={DISTRIBUTE_VERTICAL_CENTER_ICON()}
-                                        title="Distribute centers equidistantly vertically"
+                                        title="垂直等距中心分布"
                                         onClick={
                                             this.onDistributeVerticalCenter
                                         }
                                     />
                                     <IconAction
                                         icon={DISTRIBUTE_VERTICAL_BOTTOM_ICON()}
-                                        title="Distribute bottom edges equidistantly"
+                                        title="底部等距分布"
                                         onClick={
                                             this.onDistributeVerticalBottom
                                         }
                                     />
                                     <IconAction
                                         icon={DISTRIBUTE_VERTICAL_GAPS_ICON()}
-                                        title="Make vertical gaps equal"
+                                        title="垂直间距相等"
                                         onClick={this.onDistributeVerticalGaps}
                                     />
                                 </div>
@@ -1611,12 +1611,12 @@ const CenterWidgetUI = observer(
                 <div className="EezStudio_AlignAndDistributeIcons">
                     <IconAction
                         icon={ALIGN_HORIZONTAL_CENTER_ICON()}
-                        title="Center horizontally relative to parent"
+                        title="相对于父元素水平居中"
                         onClick={this.onCenterHorizontally}
                     />
                     <IconAction
                         icon={ALIGN_VERTICAL_CENTER_ICON()}
-                        title="Center vertically relative to parent"
+                        title="相对于父元素垂直居中"
                         onClick={this.onCenterVertically}
                     />
                 </div>
@@ -1741,6 +1741,7 @@ export class Component extends EezObject {
             },
             {
                 name: "left",
+                displayName: "左侧距离",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup,
                 disabled: isActionComponent,
@@ -1749,6 +1750,7 @@ export class Component extends EezObject {
             },
             {
                 name: "top",
+                displayName: "顶部距离",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup,
                 disabled: isActionComponent,
@@ -1757,6 +1759,7 @@ export class Component extends EezObject {
             },
             {
                 name: "width",
+                displayName: "宽度",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup,
                 disabled: isActionComponent,
@@ -1765,6 +1768,7 @@ export class Component extends EezObject {
             },
             {
                 name: "height",
+                displayName: "高度",
                 type: PropertyType.Number,
                 propertyGridGroup: geometryGroup,
                 disabled: isActionComponent,
@@ -1773,7 +1777,7 @@ export class Component extends EezObject {
             },
             {
                 name: "absolutePosition",
-                displayName: "Absolute pos.",
+                displayName: "绝对定位",
                 type: PropertyType.String,
                 propertyGridGroup: geometryGroup,
                 computed: true,
@@ -1838,7 +1842,7 @@ export class Component extends EezObject {
             },
             {
                 name: "customInputs",
-                displayName: "Inputs",
+                displayName: "输入",
                 type: PropertyType.Array,
                 typeClass: CustomInput,
                 propertyGridGroup: flowGroup,
@@ -1849,7 +1853,7 @@ export class Component extends EezObject {
             },
             {
                 name: "customOutputs",
-                displayName: "Outputs",
+                displayName: "输出",
                 type: PropertyType.Array,
                 typeClass: CustomOutput,
                 propertyGridGroup: flowGroup,
@@ -2599,7 +2603,7 @@ export class EventHandler extends EezObject {
                     } as any).length ==
                 0
             ) {
-                notification.info("All event handlers are already defined");
+                notification.info("所有事件函数均已定义");
                 return;
             }
 
@@ -2658,21 +2662,22 @@ export class EventHandler extends EezObject {
 
             const result = await showGenericDialog({
                 dialogDefinition: {
-                    title: "New Event Handler",
+                    title: "新建事件函数",
                     fields: [
                         {
                             name: "eventName",
-                            displayName: "Event",
+                            displayName: "事件",
                             type: "enum",
                             enumItems: (values: any) =>
                                 getEventEnumItems(eventHandlers, values)
                         },
                         {
                             name: "handlerType",
+                            displayName: "响应函数类型",
                             type: "enum",
                             enumItems: [
-                                { id: "flow", label: "Flow" },
-                                { id: "action", label: "Action" }
+                                { id: "flow", label: "工作流" },
+                                { id: "action", label: "操作" }
                             ],
                             visible: () =>
                                 project.projectTypeTraits.hasFlowSupport
@@ -2680,6 +2685,7 @@ export class EventHandler extends EezObject {
                         actionProperty,
                         {
                             name: "userData",
+                            displayName: "数据",
                             type: "number",
                             visible: (values: any) => {
                                 return project.projectTypeTraits.isLVGL;
@@ -2762,12 +2768,13 @@ export class EventHandler extends EezObject {
 
 const eventsGroup: IPropertyGridGroupDefinition = {
     id: "widget-event-handlers",
-    title: "Events",
+    title: "事件",
     position: 4
 };
 
 export const eventHandlersProperty: PropertyInfo = {
     name: "eventHandlers",
+    displayName: "添加事件函数",
     type: PropertyType.Array,
     typeClass: EventHandler,
     propertyGridGroup: eventsGroup,
@@ -2825,7 +2832,7 @@ export class Widget extends Component {
             },
             {
                 name: "allowOutside",
-                displayName: `Hide "Widget is outside of its parent" warning`,
+                displayName: `隐藏“组件超出父元素”警告`,
                 type: PropertyType.Boolean,
                 propertyGridGroup: geometryGroup,
                 disabled: component => isLVGLProject(component),
@@ -2852,7 +2859,7 @@ export class Widget extends Component {
             },
             {
                 name: "timelineUI",
-                displayName: "Keyframe editor",
+                displayName: "关键帧编辑器",
                 type: PropertyType.Any,
                 propertyGridGroup: timelineGroup,
                 propertyGridRowComponent: TimelineKeyframePropertyUI,
@@ -3027,7 +3034,7 @@ export class Widget extends Component {
                 if (objects.length === 1) {
                     additionalMenuItems.push(
                         new MenuItem({
-                            label: "Put in Select",
+                            label: "放入选择框",
                             click: () => {
                                 const selectWidget = (
                                     objects[0] as Widget
@@ -3041,7 +3048,7 @@ export class Widget extends Component {
                 if (areAllChildrenOfTheSameParent(objects)) {
                     additionalMenuItems.push(
                         new MenuItem({
-                            label: "Put in Container",
+                            label: "放入容器",
                             click: () => {
                                 const containerWidget = Widget.putInContainer(
                                     objects as Widget[]
@@ -3053,7 +3060,7 @@ export class Widget extends Component {
 
                     additionalMenuItems.push(
                         new MenuItem({
-                            label: "Put in List",
+                            label: "放入列表",
                             click: () => {
                                 const listWidget = Widget.putInList(
                                     objects as Widget[]
@@ -3065,7 +3072,7 @@ export class Widget extends Component {
 
                     additionalMenuItems.push(
                         new MenuItem({
-                            label: "Create User Widget",
+                            label: "创建用户组件",
                             click: async () => {
                                 const layoutWidget =
                                     await Widget.createUserWidgetPage(
@@ -3080,7 +3087,7 @@ export class Widget extends Component {
 
                     additionalMenuItems.push(
                         new MenuItem({
-                            label: "Replace with User Widget",
+                            label: "替换用户组件",
                             click: async () => {
                                 const layoutWidget =
                                     await Widget.replaceWithUserWidgetPage(
@@ -3097,13 +3104,13 @@ export class Widget extends Component {
                 if (objects.length === 1) {
                     additionalMenuItems.push(
                         new MenuItem({
-                            label: "Resize...",
+                            label: "调整大小",
                             click: async () => {
                                 const widget = objects[0] as Widget;
 
                                 const result = await showGenericDialog({
                                     dialogDefinition: {
-                                        title: "Resize Widget",
+                                        title: "调整组件",
                                         fields: [
                                             {
                                                 name: "width",
@@ -3191,7 +3198,7 @@ export class Widget extends Component {
 
                 additionalMenuItems.push(
                     new MenuItem({
-                        label: "Copy position and size",
+                        label: "复制大小和位置",
                         click: async () => {
                             positionAndSize = thisObject.rect;
                         }
@@ -3200,7 +3207,7 @@ export class Widget extends Component {
 
                 additionalMenuItems.push(
                     new MenuItem({
-                        label: "Paste position and size",
+                        label: "粘贴大小和位置",
                         click: async () => {
                             if (positionAndSize) {
                                 updateObject(thisObject, {
@@ -3236,7 +3243,7 @@ export class Widget extends Component {
                         messages.push(
                             new Message(
                                 MessageType.WARNING,
-                                "Widget is outside of its parent",
+                                "组件超出父容器范围",
                                 getChildOfObject(object, "left")
                             )
                         );
@@ -3246,7 +3253,7 @@ export class Widget extends Component {
                         messages.push(
                             new Message(
                                 MessageType.WARNING,
-                                "Widget is outside of its parent",
+                                "组件超出父容器范围",
                                 getChildOfObject(object, "top")
                             )
                         );
@@ -3259,7 +3266,7 @@ export class Widget extends Component {
                         messages.push(
                             new Message(
                                 MessageType.WARNING,
-                                "Widget is outside of its parent",
+                                "组件超出父容器范围",
                                 getChildOfObject(object, "width")
                             )
                         );
@@ -3272,7 +3279,7 @@ export class Widget extends Component {
                         messages.push(
                             new Message(
                                 MessageType.WARNING,
-                                "Widget is outside of its parent",
+                                "组件超出父容器范围",
                                 getChildOfObject(object, "height")
                             )
                         );

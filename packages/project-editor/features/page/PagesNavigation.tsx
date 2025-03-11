@@ -301,11 +301,7 @@ export const PageStructure = observer(
                     <Toolbar>
                         <IconAction
                             icon={widget.locked ? LOCK_ICON : UNLOCK_ICON}
-                            title={
-                                widget.locked
-                                    ? "Unlock this widget"
-                                    : "Lock this widget"
-                            }
+                            title={widget.locked ? "解锁小组件" : "锁定小组件"}
                             iconSize={14}
                             onClick={action(() =>
                                 this.context.updateObject(widget, {
@@ -322,7 +318,7 @@ export const PageStructure = observer(
                                     ? EYE_CLOSE_ICON
                                     : EYE_OPEN_ICON
                             }
-                            title={widget.hiddenInEditor ? "Show" : "Hide"}
+                            title={widget.hiddenInEditor ? "显示" : "隐藏"}
                             iconSize={14}
                             onClick={action(() => {
                                 const hiddenInEditor = !widget.hiddenInEditor;
@@ -394,7 +390,7 @@ export const PageStructure = observer(
                             ) : null}
                             <IconAction
                                 title={
-                                    this.isAnyLocked ? "Unlock All" : "Lock All"
+                                    this.isAnyLocked ? "解锁全部" : "锁定全部"
                                 }
                                 icon={
                                     this.isAnyLocked ? UNLOCK_ICON : LOCK_ICON
@@ -408,7 +404,7 @@ export const PageStructure = observer(
                             />
                             <IconAction
                                 title={
-                                    this.isAnyHidden ? "Show All" : "Hide all"
+                                    this.isAnyHidden ? "全部显示" : "全部隐藏"
                                 }
                                 icon={
                                     this.isAnyHidden

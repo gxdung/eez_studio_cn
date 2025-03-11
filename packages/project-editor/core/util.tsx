@@ -22,7 +22,7 @@ export async function confirm(
 ) {
     const result = await dialog.showMessageBox(getCurrentWindow(), {
         type: "question",
-        title: "Project Editor - EEZ Studio",
+        title: "项目编辑器 - EEZ Studio",
         message: message,
         detail: detail,
         noLink: true,
@@ -38,7 +38,7 @@ export async function confirm(
 export function info(message: string, detail?: string) {
     return dialog.showMessageBox(getCurrentWindow(), {
         type: "info",
-        title: "Project Editor - EEZ Studio",
+        title: "项目编辑器 - EEZ Studio",
         message: message,
         detail: detail,
         noLink: true,

@@ -201,7 +201,7 @@ export class ComponentInfo {
         if (text == undefined) {
             return (
                 <div className="alert alert-danger" role="alert">
-                    No description yet
+                    没有描述
                 </div>
             );
         }

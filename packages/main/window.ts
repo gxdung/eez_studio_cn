@@ -328,7 +328,7 @@ ipcMain.on("printPDF", (event: any, { content, options }: any) => {
             data = await printWindow.webContents.printToPDF(options);
         } catch (err) {
             await dialog.showMessageBox(senderWindow, {
-                title: "Print to PDF - EEZ Studio",
+                title: "打印到 PDF - EEZ Studio",
                 message: err.toString()
             });
         } finally {
@@ -348,7 +348,7 @@ ipcMain.on("printPDF", (event: any, { content, options }: any) => {
                 shell.openPath(filePath);
             } catch (err) {
                 await dialog.showMessageBox(senderWindow, {
-                    title: "Print to PDF - EEZ Studio",
+                    title: "打印到 PDF - EEZ Studio",
                     message: err.toString()
                 });
             }
