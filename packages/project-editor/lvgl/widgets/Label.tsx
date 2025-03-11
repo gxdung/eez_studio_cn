@@ -59,6 +59,7 @@ export class LVGLLabelWidget extends LVGLWidget {
             ),
             {
                 name: "previewValue",
+                
                 type: PropertyType.String,
                 disabled: (widget: LVGLLabelWidget) => {
                     return (

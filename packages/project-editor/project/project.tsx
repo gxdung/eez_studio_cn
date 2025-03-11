@@ -300,31 +300,32 @@ export class Build extends EezObject {
             },
             {
                 name: "destinationFolder",
+                displayName: "目标文件夹",
                 type: PropertyType.RelativeFolder
             },
             {
                 name: "separateFolderForImagesAndFonts",
-                displayName: "Store image and font files in a separate folder",
+                displayName: "图像和字体单独储存",
                 checkboxStyleSwitch: true,
                 type: PropertyType.Boolean,
                 disabled: isNotLVGLProject
             },
             {
                 name: "lvglInclude",
-                displayName: "LVGL include",
+                displayName: "LVGL 路径",
                 type: PropertyType.String,
                 disabled: isNotLVGLProject
             },
             {
                 name: "screensLifetimeSupport",
+                displayName: "屏幕生命周期支持",
                 checkboxStyleSwitch: true,
                 type: PropertyType.Boolean,
                 disabled: isNotLVGLProject
             },
             {
                 name: "generateSourceCodeForEezFramework",
-                displayName:
-                    "Generate source code for EEZ Flow engine (eez-framework)",
+                displayName: "生成 EEZ 工作流引擎 (EEZ-Framework) 的源代码",
                 type: PropertyType.Boolean,
                 checkboxStyleSwitch: true,
                 disabled: object =>
@@ -333,6 +334,7 @@ export class Build extends EezObject {
             },
             {
                 name: "compressFlowDefinition",
+                displayName: "压缩工作流定义",
                 type: PropertyType.Boolean,
                 checkboxStyleSwitch: true,
                 disabled: (object: Build) =>
@@ -342,6 +344,7 @@ export class Build extends EezObject {
             },
             {
                 name: "executionQueueSize",
+                displayName: "执行队列大小",
                 type: PropertyType.Number,
                 disabled: (object: Build) =>
                     isNotLVGLProject(object) ||
@@ -350,6 +353,7 @@ export class Build extends EezObject {
             },
             {
                 name: "expressionEvaluatorStackSize",
+                displayName: "表达式求值器堆栈大小",
                 type: PropertyType.Number,
                 disabled: (object: Build) =>
                     isNotLVGLProject(object) ||

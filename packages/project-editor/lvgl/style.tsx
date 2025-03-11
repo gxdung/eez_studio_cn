@@ -154,18 +154,21 @@ export class LVGLStyle extends EezObject {
             },
             {
                 name: "childStyles",
+                displayName: "子元素样式",
                 type: PropertyType.Array,
                 typeClass: LVGLStyle,
                 hideInPropertyGrid: true
             },
             {
                 name: "defaultStyle",
+                displayName: "默认样式",
                 type: PropertyType.Any,
                 computed: true,
                 propertyGridColumnComponent: DefaultStylePropertyGridUI
             },
             {
                 name: "definition",
+                displayName: "定义",
                 type: PropertyType.Object,
                 typeClass: LVGLStylesDefinition,
                 propertyGridRowComponent: LVGLStylesDefinitionProperty,
@@ -239,7 +242,7 @@ export class LVGLStyle extends EezObject {
                         },
                         {
                             name: "forWidgetType",
-                            displayName: "样式类型",
+                            displayName: "组件类型",
                             type: "enum",
                             enumItems: () => {
                                 return getClassesDerivedFrom(
