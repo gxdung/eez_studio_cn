@@ -7,27 +7,27 @@ import { ProjectEditor } from "project-editor/project-editor-interface";
 
 export const indentationGroup: IPropertyGridGroupDefinition = {
     id: "indentation",
-    title: "Indentation",
+    title: "缩进",
     position: 2
 };
 
 export const generalGroup: IPropertyGridGroupDefinition = {
     id: "general",
-    title: "General",
+    title: "通用",
     position: (object: IEezObject) =>
         object instanceof ProjectEditor.ActionComponentClass ? 0 : 1
 };
 
 export const specificGroup: IPropertyGridGroupDefinition = {
     id: "specific",
-    title: "Specific",
+    title: "特定",
     position: (object: IEezObject) =>
         object instanceof ProjectEditor.ActionComponentClass ? 1 : 2
 };
 
 export const layoutGroup: IPropertyGridGroupDefinition = {
     id: "layout",
-    title: "Layout",
+    title: "布局",
     position: (object: IEezObject) =>
         object instanceof ProjectEditor.ActionComponentClass
             ? 3
@@ -38,14 +38,14 @@ export const layoutGroup: IPropertyGridGroupDefinition = {
 
 export const flowGroup: IPropertyGridGroupDefinition = {
     id: "flow",
-    title: "Flow",
+    title: "工作流",
     position: (object: IEezObject) =>
         object instanceof ProjectEditor.ActionComponentClass ? 2 : 5
 };
 
 export const geometryGroup: IPropertyGridGroupDefinition = {
     id: "geometry",
-    title: "Position and size",
+    title: "位置和大小",
     position: (object: IEezObject) =>
         object instanceof ProjectEditor.ActionComponentClass
             ? 3
@@ -57,14 +57,14 @@ export const geometryGroup: IPropertyGridGroupDefinition = {
 
 export const styleGroup: IPropertyGridGroupDefinition = {
     id: "style",
-    title: "Style",
+    title: "样式",
     position: (object: IEezObject) =>
         object instanceof ProjectEditor.ActionComponentClass ? 4 : 3
 };
 
 export const timelineGroup: IPropertyGridGroupDefinition = {
     id: "timeline",
-    title: "Timeline keyframe",
+    title: "时间轴关键帧",
     position: (object: IEezObject) => -2
 };
 
