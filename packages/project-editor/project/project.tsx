@@ -325,7 +325,7 @@ export class Build extends EezObject {
             },
             {
                 name: "generateSourceCodeForEezFramework",
-                displayName: "生成 EEZ 工作流引擎 (EEZ-Framework) 的源代码",
+                displayName: "生成 EEZ Flow 框架的源代码",
                 type: PropertyType.Boolean,
                 checkboxStyleSwitch: true,
                 disabled: object =>
@@ -603,7 +603,7 @@ export class ExtensionDirective extends EezObject {
                     messages.push(
                         new Message(
                             MessageType.ERROR,
-                            `Extension ${object.extensionName} is not installed`,
+                            `拓展 ${object.extensionName} 未安装`,
                             getChildOfObject(object, "extensionName")
                         )
                     );
@@ -747,6 +747,7 @@ export class General extends EezObject {
         properties: [
             {
                 name: "projectType",
+                displayName: "项目类型",
                 type: PropertyType.Enum,
                 enumItems: [
                     {
@@ -789,16 +790,16 @@ export class General extends EezObject {
                 name: "projectVersion",
                 displayName: (object: General) => {
                     if (object.projectType == ProjectType.RESOURCE) {
-                        return "Target BB3 firmware";
+                        return "目标 BB3 固件";
                     }
-                    return "Project version";
+                    return "工程版本";
                 },
                 type: PropertyType.Enum,
                 enumItems: (object: General) => {
                     if (object.projectType == ProjectType.RESOURCE) {
                         return [
-                            { id: "v2", label: "1.7.X or older" },
-                            { id: "v3", label: "1.8 or newer" }
+                            { id: "v2", label: "1.7.X 或更旧版本" },
+                            { id: "v3", label: "1.8 或更新版本" }
                         ];
                     } else {
                         return [{ id: "v1" }, { id: "v2" }, { id: "v3" }];
@@ -824,7 +825,7 @@ export class General extends EezObject {
             },
             {
                 name: "lvglVersion",
-                displayName: "LVGL version",
+                displayName: "LVGL 版本",
                 type: PropertyType.Enum,
                 enumItems: [
                     { id: "8.3", label: "8.x" },
@@ -838,8 +839,8 @@ export class General extends EezObject {
                 name: "commandsDocFolder",
                 displayName: (object: General) =>
                     getProject(object).scpi
-                        ? "SCPI documentation folder"
-                        : "Commands documentation folder",
+                        ? "SCPI 文档文件夹"
+                        : "命令文档文件夹",
                 type: PropertyType.RelativeFolder,
                 disabled: (object: IEezObject) => {
                     const project = getProject(object);
@@ -862,18 +863,20 @@ export class General extends EezObject {
             },
             {
                 name: "extensions",
+                displayName: "拓展",
                 type: PropertyType.Array,
                 typeClass: ExtensionDirective,
                 defaultValue: [],
                 partOfNavigation: false,
                 enumerable: false,
                 formText:
-                    "After adding an extension, you need to reload the project to see the changes. To reload the project select 'Reload Project' from the 'File' menu.",
+                    "添加拓展后，需要重新加载项目才能看到更改。要重新加载项目，请在“文件”菜单中选择“重新加载项目”。",
                 disabled: (general: General) =>
                     ProjectEditor.getProject(general).projectTypeTraits.isIEXT
             },
             {
                 name: "imports",
+                displayName: "导入",
                 type: PropertyType.Array,
                 typeClass: ImportDirective,
                 defaultValue: [],
@@ -894,6 +897,7 @@ export class General extends EezObject {
             */
             {
                 name: "displayWidth",
+                displayName: "屏幕宽度",
                 type: PropertyType.Number,
                 disabled: (general: General) =>
                     !ProjectEditor.getProject(general).projectTypeTraits
@@ -901,6 +905,7 @@ export class General extends EezObject {
             },
             {
                 name: "displayHeight",
+                displayName: "屏幕高度",
                 type: PropertyType.Number,
                 disabled: (general: General) =>
                     !ProjectEditor.getProject(general).projectTypeTraits
@@ -908,24 +913,28 @@ export class General extends EezObject {
             },
             {
                 name: "circularDisplay",
+                displayName: "圆形屏幕",
                 type: PropertyType.Boolean,
                 checkboxStyleSwitch: true,
                 disabled: isNotLVGLProject
             },
             {
                 name: "displayBorderRadius",
+                displayName: "屏幕圆角",
                 type: PropertyType.Number,
                 disabled: (general: General) =>
                     isNotLVGLProject(general) || general.circularDisplay
             },
             {
                 name: "darkTheme",
+                displayName: "深色模式",
                 type: PropertyType.Boolean,
                 checkboxStyleSwitch: true,
                 disabled: isNotLVGLProject
             },
             {
                 name: "colorFormat",
+                displayName: "色彩模式",
                 type: PropertyType.Enum,
                 enumItems: [
                     { id: "RGB", label: "RGB" },
@@ -938,6 +947,7 @@ export class General extends EezObject {
             },
             {
                 name: "flowSupport",
+                displayName: "工作流支持",
                 type: PropertyType.Boolean,
                 checkboxStyleSwitch: true,
                 disabled: (general: General) => {
@@ -950,11 +960,12 @@ export class General extends EezObject {
             },
             {
                 name: "hiddenWidgetLines",
+
                 type: PropertyType.Enum,
                 enumItems: [
-                    { id: "visible", label: "Fully visible" },
-                    { id: "dimmed", label: "Dimmed" },
-                    { id: "hidden", label: "Hidden" }
+                    { id: "visible", label: "完全可见" },
+                    { id: "dimmed", label: "半透明" },
+                    { id: "hidden", label: "隐藏" }
                 ],
                 enumDisallowUndefined: true,
                 disabled: (general: General) => {
@@ -966,7 +977,7 @@ export class General extends EezObject {
             },
             {
                 name: "dimmedLinesOpacity",
-                displayName: "Dimmed lines opacity (%)",
+                displayName: "Dimmed lines 不透明度 (%)",
                 type: PropertyType.Number,
                 disabled: (general: General) => {
                     return (
@@ -978,11 +989,13 @@ export class General extends EezObject {
             },
             {
                 name: "title",
+                displayName: "标题",
                 type: PropertyType.String,
                 disabled: isNotDashboardProject
             },
             {
                 name: "icon",
+                displayName: "图标",
                 type: PropertyType.Image,
                 embeddedImage: true,
                 disabled: isNotDashboardProject
@@ -990,48 +1003,54 @@ export class General extends EezObject {
 
             {
                 name: "description",
+                displayName: "描述",
                 type: PropertyType.MultilineText
             },
             {
                 name: "image",
+                displayName: "图像",
                 type: PropertyType.Image,
                 embeddedImage: true
             },
             {
                 name: "keywords",
+                displayName: "关键词",
                 type: PropertyType.String
             },
             {
                 name: "targetPlatform",
                 displayName: (general: General) =>
                     general.projectType == ProjectType.IEXT
-                        ? "Target instrument"
-                        : "Target platform",
+                        ? "运行仪器"
+                        : "运行平台",
                 type: PropertyType.MultilineText
             },
             {
                 name: "targetPlatformLink",
                 displayName: (general: General) =>
                     general.projectType == ProjectType.IEXT
-                        ? "Target instrument link"
-                        : "Target platform link",
+                        ? "仪器文档"
+                        : "平台文档",
                 type: PropertyType.String
             },
             {
                 name: "author",
+                displayName: "作者",
                 type: PropertyType.String
             },
             {
                 name: "authorLink",
+                displayName: "作者链接",
                 type: PropertyType.String
             },
             {
                 name: "minStudioVersion",
-                displayName: "Min. studio version",
+                displayName: "EEZ Studio 最低版本",
                 type: PropertyType.String
             },
             {
                 name: "resourceFiles",
+                displayName: "资源文件",
                 type: PropertyType.Array,
                 typeClass: ResourceFile,
                 defaultValue: [],
@@ -1052,7 +1071,7 @@ export class General extends EezObject {
                     messages.push(
                         new Message(
                             MessageType.ERROR,
-                            "File doesn't exists",
+                            "文件不存在",
                             getChildOfObject(general, "masterProject")
                         )
                     );
@@ -1069,7 +1088,7 @@ export class General extends EezObject {
                     messages.push(
                         new Message(
                             MessageType.ERROR,
-                            `Display width must be between 1 and 1280 `,
+                            `屏幕宽度只能在1到1280之间`,
                             getChildOfObject(general, "displayWidth")
                         )
                     );
@@ -1079,7 +1098,7 @@ export class General extends EezObject {
                     messages.push(
                         new Message(
                             MessageType.ERROR,
-                            `Display height must be between 1 and 1280 `,
+                            `屏幕高度只能在1到1280之间`,
                             getChildOfObject(general, "displayHeight")
                         )
                     );
@@ -1286,12 +1305,14 @@ function getProjectClassInfo() {
         builtinProjectProperties = [
             {
                 name: "settings",
+                displayName: "设置",
                 type: PropertyType.Object,
                 typeClass: Settings,
                 hideInPropertyGrid: true
             },
             {
                 name: "colors",
+                displayName: "颜色",
                 type: PropertyType.Array,
                 typeClass: Color,
                 partOfNavigation: false,
@@ -1299,6 +1320,7 @@ function getProjectClassInfo() {
             },
             {
                 name: "themes",
+                displayName: "主题",
                 type: PropertyType.Array,
                 typeClass: Theme,
                 partOfNavigation: false,
@@ -1306,6 +1328,7 @@ function getProjectClassInfo() {
             },
             {
                 name: "themesVersion",
+                displayName: "主题版本",
                 type: PropertyType.Number,
                 hideInPropertyGrid: true
             }
