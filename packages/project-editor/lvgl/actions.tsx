@@ -145,10 +145,10 @@ export function registerAction(actionDefinition: IActionDefinition) {
     actionDefinitions.push(actionDefinition);
 
     if (actionNameToActionId.has(actionDefinition.name)) {
-        throw "duplicate LVGL action name";
+        throw "LVGL 操作名称重复";
     }
     if (actionIdToActionName.has(actionDefinition.id)) {
-        throw "duplicate LVGL action name";
+        throw "LVGL 操作名称重复";
     }
 
     actionNameToActionId.set(actionDefinition.name, actionDefinition.id);
@@ -928,7 +928,7 @@ const NewLVGLActionDialog = observer(
                 <Dialog
                     open={this.open}
                     modal={true}
-                    title={"Add a New LVGL Action"}
+                    title={"新增 LVGL 操作"}
                     okEnabled={this.onOkEnabled}
                     onOk={this.onOk}
                     onCancel={this.props.onCancel}

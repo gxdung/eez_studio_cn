@@ -238,7 +238,7 @@ export class LVGLGroup extends EezObject {
         newItem: async (parent: IEezObject) => {
             const result = await showGenericDialog({
                 dialogDefinition: {
-                    title: "New Group",
+                    title: "新增组",
                     fields: [
                         {
                             name: "name",
