@@ -70,7 +70,7 @@ async function selectLVGLStyleProperty(object: IEezObject) {
             {
                 jsPanel: {
                     id: "lvgl-style-properties",
-                    title: "Select LVGL style property",
+                    title: "选择 LVGL 样式属性",
                     width: 600,
                     height: 800
                 }
