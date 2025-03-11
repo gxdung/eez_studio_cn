@@ -216,14 +216,14 @@ export class LVGLGroup extends EezObject {
             },
             {
                 name: "defaultGroupForEncoderInSimulator",
-                displayName: "启用编码器(模拟器)",
+                displayName: "启用模拟编码器",
                 type: PropertyType.Any,
                 computed: true,
                 propertyGridColumnComponent: DefaultGroupPropertyGridUI
             },
             {
                 name: "defaultGroupForKeyboardInSimulator",
-                displayName: "启用键盘(模拟器)",
+                displayName: "启用模拟键盘",
                 type: PropertyType.Any,
                 computed: true,
                 propertyGridColumnComponent: DefaultGroupPropertyGridUI
