@@ -19,7 +19,7 @@
 
 ## 介绍
 
-EEZ Studio 是一款免费且开源的跨平台低代码可视化工具，专为桌面及嵌入式图形用户界面（GUI）设计打造，并支持 [LVGL](https://lvgl.io/) 框架。其内置的 _EEZ Flow_ 功能支持创建复杂的测试和测量自动化场景，而 Instruments(仪器) 功能则能远程控制多种设备及测试测量设备，包括 [EEZ BB3](https://github.com/eez-open/modular-psu) 测试测量机箱、 [EEZ H24005](https://github.com/eez-open/psu-hw) 可编程电源以及任何支持 [SCPI](https://www.ivifoundation.org/scpi/) 协议的测试测量设备，例如 Keysight（是德科技）、Rigol（普源精电）、Siglent（鼎阳科技）等厂商的仪器。
+EEZ Studio 是一款免费且开源的跨平台低代码可视化工具，专为桌面及嵌入式图形用户界面（GUI）设计打造，并支持 [LVGL](https://lvgl.io/) 框架。其内置的 _EEZ Flow_ 功能支持创建复杂的测试和测量自动化场景，而 Instruments（仪器） 功能则能远程控制多种设备及测试测量设备，包括 [EEZ BB3](https://github.com/eez-open/modular-psu) 测试测量机箱、 [EEZ H24005](https://github.com/eez-open/psu-hw) 可编程电源以及任何支持 [SCPI](https://www.ivifoundation.org/scpi/) 协议的测试测量设备，例如 Keysight（是德科技）、Rigol（普源精电）、Siglent（鼎阳科技）等厂商的仪器。
 
 ### 所有权和许可证
 
@@ -28,6 +28,7 @@ EEZ Studio 使用 [C4.1(集体代码构建规范)](http://rfc.zeromq.org/spec:22
 要报告问题，请使用 [EEZ Studio 问题跟踪器](https://github.com/eez-open/studio/issues)。
 
 _重要说明：Envox d.o.o. 公司不对通过 Build 命令生成的源代码主张任何所有权，但以下情况除外：当使用 MIT 许可证的 EEZ Flow 功能创建的项目。_
+
 _用户拥有 `.eez-project` 项目文件及由该文件中模板定义生成的全部源代码所有权。EEZ Studio 生成的文件可能遵循 MIT、BSD 2.0 或公共领域（Public Domain）许可证。_
 
 
@@ -122,10 +123,7 @@ _用户拥有 `.eez-project` 项目文件及由该文件中模板定义生成的
 下载后运行 `EEZ_Studio_setup.exe`.
 
 ### Nix
-
-The Nix flake provides a derivation for EEZ Studio or an overlay
-that provides that derivation. It can be used to install the project using
-[Nix package manager](https://nixos.org/).
+Nix flake 提供了 EEZ Studio 的镜像，或一个包含该镜像的可用层。可使用 [Nix 包管理器](https://nixos.org/) 来安装该项目。
 
 ### 从源代码编译并运行
 
