@@ -120,12 +120,9 @@ export const NativeActionImplementationInfoPropertyUI = observer(
                         </div>
                         <div className="EezStudio_PropertyGrid_TipBox_DescriptionText">
                             {this.hasFlowSupport
-                                ? "For native user action "
-                                : "For user action "}
-                            you must provide implementation function. Below is a
-                            basic implementation code for such function. You can
-                            copy and paste it into some source file in your
-                            project.
+                                ? "用于原生用户操作"
+                                : "用于用户操作"}
+                            必须提供实现函数。下面是该函数的基本实现代码，你可以将其复制并粘贴到项目的某个源文件中。
                         </div>
                         <div className="EezStudio_PropertyGrid_TipBox_Toolbar">
                             <select
@@ -200,17 +197,20 @@ export class Action extends Flow {
             },
             {
                 name: "name",
+                displayName: "名称",
                 type: PropertyType.String,
                 unique: true,
                 propertyGridGroup: generalGroup
             },
             {
                 name: "description",
+                displayName: "描述",
                 type: PropertyType.MultilineText,
                 propertyGridGroup: generalGroup
             },
             {
                 name: "implementationType",
+                displayName: "实现类型",
                 type: PropertyType.Enum,
                 enumItems: [
                     {
@@ -231,6 +231,7 @@ export class Action extends Flow {
             },
             {
                 name: "nativeImplementationInfo",
+                displayName: "原生实现信息",
                 type: PropertyType.Any,
                 computed: true,
                 propertyGridRowComponent:
@@ -247,12 +248,14 @@ export class Action extends Flow {
             },
             {
                 name: "implementation",
+                displayName: "实现",
                 type: PropertyType.CPP,
                 propertyGridGroup: specificGroup,
                 disabled: isNotV1Project
             },
             {
                 name: "usedIn",
+                displayName: "作用域",
                 type: PropertyType.ConfigurationReference,
                 referencedObjectCollectionPath: "settings/build/configurations",
                 propertyGridGroup: generalGroup,
@@ -302,10 +305,11 @@ export class Action extends Flow {
 
             const result = await showGenericDialog({
                 dialogDefinition: {
-                    title: "新增动作",
+                    title: "新增操作",
                     fields: [
                         {
                             name: "name",
+                            displayName: "名称",
                             type: "string",
                             validators: [
                                 validators.required,
@@ -315,6 +319,7 @@ export class Action extends Flow {
                         },
                         {
                             name: "implementationType",
+                            displayName: "实现类型",
                             type: "enum",
                             enumItems: [
                                 {
@@ -392,10 +397,10 @@ registerClass("Action", Action);
 const feature: ProjectEditorFeature = {
     name: "eezstudio-project-feature-action",
     version: "0.1.0",
-    description: "User actions support for your project",
+    description: "User actions 支持",
     author: "EEZ",
     authorLogo: "../eez-studio-ui/_images/eez_logo.png",
-    displayName: "User Actions",
+    displayName: "用户操作",
     mandatory: true,
     key: "actions",
     type: PropertyType.Array,
