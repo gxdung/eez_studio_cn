@@ -9,6 +9,8 @@
 
 如果您有任何问题，或翻译上的建议，请通过 [Issues](https://github.com/gxdung/eez_studio_cn/issues) 提出。
 
+仓库：[Gitee](https://gitee.com/gxdung/eez-studio-cn) | [GitHub](https://github.com/gxdung/eez_studio_cn)
+
 **官方自述说明（English）**：https://github.com/eez-open/studio/blob/master/README.md
 
 **官方仓库**：https://github.com/eez-open/studio
