@@ -68,7 +68,7 @@ const AddButton = observer(
         render() {
             return (
                 <IconAction
-                    title="Add Style..."
+                    title="添加样式"
                     icon="material:add"
                     iconSize={16}
                     onClick={this.onAdd}
@@ -95,7 +95,7 @@ const DeleteButton = observer(
         render() {
             return (
                 <IconAction
-                    title="Delete Selected Item"
+                    title="删除选中项"
                     icon="material:delete"
                     iconSize={16}
                     onClick={this.onDelete}
