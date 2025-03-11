@@ -226,10 +226,11 @@ export class LVGLStyle extends EezObject {
 
             const result = await showGenericDialog({
                 dialogDefinition: {
-                    title: "New Style",
+                    title: "新增样式",
                     fields: [
                         {
                             name: "name",
+                            displayName: "样式名称",
                             type: "string",
                             validators: [
                                 validators.required,
@@ -238,6 +239,7 @@ export class LVGLStyle extends EezObject {
                         },
                         {
                             name: "forWidgetType",
+                            displayName: "样式类型",
                             type: "enum",
                             enumItems: () => {
                                 return getClassesDerivedFrom(
