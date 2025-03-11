@@ -194,15 +194,18 @@ export class BuildFile extends EezObject {
         properties: [
             {
                 name: "fileName",
+                displayName: "文件名",
                 type: PropertyType.String,
                 unique: true
             },
             {
                 name: "description",
+                displayName: "描述",
                 type: PropertyType.MultilineText
             },
             {
                 name: "template",
+                displayName: "模板",
                 type: PropertyType.String,
                 hideInPropertyGrid: true
             }
@@ -210,7 +213,7 @@ export class BuildFile extends EezObject {
         newItem: async (parent: IEezObject) => {
             const result = await showGenericDialog({
                 dialogDefinition: {
-                    title: "New File",
+                    title: "新建文件",
                     fields: [
                         {
                             name: "fileName",
@@ -284,6 +287,7 @@ export class Build extends EezObject {
         properties: [
             {
                 name: "configurations",
+                displayName: "配置",
                 type: PropertyType.Array,
                 typeClass: BuildConfiguration,
                 enumerable: object => !isLVGLProject(object),
@@ -292,6 +296,7 @@ export class Build extends EezObject {
             },
             {
                 name: "files",
+                displayName: "文件",
                 type: PropertyType.Array,
                 typeClass: BuildFile,
                 hideInPropertyGrid: true,
@@ -440,8 +445,8 @@ export class ImportDirective extends EezObject {
                 name: "projectFilePath",
                 type: PropertyType.RelativeFile,
                 fileFilters: [
-                    { name: "EEZ Project", extensions: ["eez-project"] },
-                    { name: "All Files", extensions: ["*"] }
+                    { name: "EEZ 工程", extensions: ["eez-project"] },
+                    { name: "全部文件", extensions: ["*"] }
                 ],
                 isOptional: false
             },
@@ -851,8 +856,8 @@ export class General extends EezObject {
                 name: "masterProject",
                 type: PropertyType.RelativeFile,
                 fileFilters: [
-                    { name: "EEZ Project", extensions: ["eez-project"] },
-                    { name: "All Files", extensions: ["*"] }
+                    { name: "EEZ 工程", extensions: ["eez-project"] },
+                    { name: "全部文件", extensions: ["*"] }
                 ],
                 disabled: (general: General) => {
                     return !(
