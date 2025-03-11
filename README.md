@@ -4,12 +4,17 @@
 本仓库为 EEZ Stuido 的镜像仓库，软件由 [Envox d.o.o.](https://www.envox.si/) 开发。
 
 简体中文开发者：[乐乐龙果冻](https://github.com/gxdung)
+
 中文版本将根据官方版本来本地化，并视情况来修改软件的**页面样式**或**功能**。
+
 如果您有任何问题，或翻译上的建议，请通过 [Issues](https://github.com/gxdung/eez_studio_cn/issues) 提出。
 
 **官方自述说明（English）**：https://github.com/eez-open/studio/blob/master/README.md
+
 **官方仓库**：https://github.com/eez-open/studio
+
 **官方文档**：https://www.envox.eu/eez-studio-docs
+
 **LVGL 文档**：https://docs.lvgl.io/master/details
 
 ## 介绍
