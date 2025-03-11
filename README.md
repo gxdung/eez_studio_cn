@@ -28,7 +28,7 @@ EEZ Studio 使用 [C4.1(集体代码构建规范)](http://rfc.zeromq.org/spec:22
 要报告问题，请使用 [EEZ Studio 问题跟踪器](https://github.com/eez-open/studio/issues)。
 
 _重要说明：Envox d.o.o. 公司不对通过 Build 命令生成的源代码主张任何所有权，但以下情况除外：当使用 MIT 许可证的 EEZ Flow 功能创建的项目。_
-_用户拥有 `.eez-project` 项目文件及由该文件中模板定义生成的全部源代码所有权。EEZ Studio 生成的文件可能遵循 MIT、BSD 2.0 或公共领域（Public Domain）许可证。
+_用户拥有 `.eez-project` 项目文件及由该文件中模板定义生成的全部源代码所有权。EEZ Studio 生成的文件可能遵循 MIT、BSD 2.0 或公共领域（Public Domain）许可证。_
 
 
 
