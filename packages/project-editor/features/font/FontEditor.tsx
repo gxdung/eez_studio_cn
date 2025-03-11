@@ -180,27 +180,28 @@ export const FontEditor = observer(
             const addOptionEnumItems = [
                 {
                     id: "append",
-                    label: "Add single character at the end"
+                    label: "在末尾添加单个字符"
                 },
                 {
                     id: "range",
-                    label: "Add characters from range"
+                    label: "添加范围内的字符"
                 }
             ];
 
             if (missingEncodings.length > 0) {
                 addOptionEnumItems.push({
                     id: "missing",
-                    label: "Add missing characters"
+                    label: "添加缺失的字符"
                 });
             }
 
             return showGenericDialog(this.context, {
                 dialogDefinition: {
-                    title: "Add Characters",
+                    title: "添加字符",
                     fields: [
                         {
                             name: "filePath",
+                            displayName: "文件路径",
                             type: RelativeFileInput,
                             validators: [validators.required, fontFileExists],
                             options: {
@@ -215,7 +216,7 @@ export const FontEditor = observer(
                         },
                         {
                             name: "size",
-                            displayName: "Font size (points)",
+                            displayName: "字体大小 (pt)",
                             type: "number",
                             validators: [
                                 validators.required,
@@ -224,35 +225,38 @@ export const FontEditor = observer(
                         },
                         {
                             name: "threshold",
+                            displayName: "阈值",
                             type: "number",
                             visible: is1BitPerPixel,
                             validators: [validators.rangeInclusive(1, 255)]
                         },
                         {
                             name: "addOption",
+                            displayName: "添加选项",
                             type: "radio",
                             enumItems: addOptionEnumItems
                         },
                         {
                             name: "fromGlyph",
-                            displayName: "From character",
+                            displayName: "从字符",
                             type: "number",
                             visible: isAddOptionRange
                         },
                         {
                             name: "toGlyph",
-                            displayName: "To character",
+                            displayName: "到字符",
                             type: "number",
                             visible: isAddOptionRange
                         },
                         {
                             name: "overwriteExisting",
+                            displayName: "覆盖现有文件",
                             type: "boolean",
                             visible: isAddOptionRange
                         },
                         {
                             name: "createBlankGlyphs",
-                            displayName: "Create blank characters",
+                            displayName: "创建空白字符",
                             type: "boolean"
                         }
                     ]
@@ -357,14 +361,12 @@ export const FontEditor = observer(
 
                             if (result.values.addOption === "missing") {
                                 notification.info(
-                                    `Added ${added} character(s), not found ${
+                                    `已添加 ${added} 个字符，缺失 ${
                                         missingEncodings.length - added
-                                    } character(s)`
+                                    } 个字符`
                                 );
                             } else if (result.values.addOption === "range") {
-                                notification.info(
-                                    `Added ${added} character(s)`
-                                );
+                                notification.info(`已添加 ${added} 个字符`);
                             }
                         })
                         .catch(err => {
@@ -379,10 +381,10 @@ export const FontEditor = observer(
 
                             if (errorMessage) {
                                 notification.error(
-                                    `Adding characters failed: ${errorMessage}`
+                                    `字符添加失败: ${errorMessage}`
                                 );
                             } else {
-                                notification.error(`Adding characters failed!`);
+                                notification.error(`字符添加失败！`);
                             }
 
                             return false;
@@ -819,7 +821,7 @@ export function browseGlyph(glyph: Glyph) {
             fields: [
                 {
                     name: "filePath",
-                    displayName: "Font",
+                    displayName: "字体",
                     type: RelativeFileInput,
                     options: {
                         filters: [
@@ -834,7 +836,7 @@ export function browseGlyph(glyph: Glyph) {
                 },
                 {
                     name: "renderingEngine",
-                    displayName: "Rendering engine",
+                    displayName: "渲染引擎",
                     type: "enum",
                     enumItems: [
                         { id: "freetype", label: "FreeType" },
@@ -844,12 +846,14 @@ export function browseGlyph(glyph: Glyph) {
                 },
                 {
                     name: "bpp",
+                    displayName: "像素位数",
                     type: "number",
                     visible: () => false,
                     validators: [validators.required]
                 },
                 {
                     name: "size",
+                    displayName: "大小",
                     type: "number",
                     validators: [
                         validators.required,
@@ -858,12 +862,14 @@ export function browseGlyph(glyph: Glyph) {
                 },
                 {
                     name: "threshold",
+                    displayName: "阈值",
                     type: "number",
                     visible: is1BitPerPixel,
                     validators: [validators.rangeInclusive(1, 255)]
                 },
                 {
                     name: "encoding",
+                    displayName: "字符编码",
                     type: GlyphSelectFieldType,
                     enclosureClassName: "encoding",
                     options: {
