@@ -280,7 +280,7 @@ export class Build extends EezObject {
     expressionEvaluatorStackSize: number;
 
     static classInfo: ClassInfo = {
-        label: () => "Build",
+        label: () => "编译",
         properties: [
             {
                 name: "configurations",
@@ -671,7 +671,7 @@ export class ResourceFile extends EezObject {
                     messages.push(
                         new Message(
                             MessageType.ERROR,
-                            "File doesn't exists",
+                            "文件不存在",
                             getChildOfObject(object, "filePath")
                         )
                     );
@@ -743,7 +743,7 @@ export class General extends EezObject {
     dimmedLinesOpacity: number;
 
     static classInfo: ClassInfo = {
-        label: () => "General",
+        label: () => "通用",
         properties: [
             {
                 name: "projectType",
@@ -947,7 +947,7 @@ export class General extends EezObject {
             },
             {
                 name: "flowSupport",
-                displayName: "工作流支持",
+                displayName: "启用工作流",
                 type: PropertyType.Boolean,
                 checkboxStyleSwitch: true,
                 disabled: (general: General) => {
@@ -1252,16 +1252,18 @@ export class Settings extends EezObject {
     build: Build;
 
     static classInfo: ClassInfo = {
-        label: () => "Settings",
+        label: () => "设置",
         properties: [
             {
                 name: "general",
+                displayName: "通用",
                 type: PropertyType.Object,
                 typeClass: General,
                 hideInPropertyGrid: true
             },
             {
                 name: "build",
+                displayName: "编译",
                 type: PropertyType.Object,
                 typeClass: Build,
                 hideInPropertyGrid: true,
@@ -1335,7 +1337,7 @@ function getProjectClassInfo() {
         ];
 
         projectClassInfo = {
-            label: () => "Project",
+            label: () => "工程",
             properties: projectProperties,
             beforeLoadHook: (project: Project, projectJs: any) => {
                 if (
