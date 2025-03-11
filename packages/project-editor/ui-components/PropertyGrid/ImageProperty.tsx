@@ -73,11 +73,9 @@ export const ImageProperty = observer(
                                             imageValue
                                         )
                                     );
-                                    notification.info(
-                                        "Image copied to clipboard"
-                                    );
+                                    notification.info("图像已复制到剪切板");
                                 }}
-                                title="Copy image to clipboard"
+                                title="图像复制到剪切板"
                             >
                                 <Icon icon="material:content_copy" size={16} />
                             </button>
@@ -91,7 +89,7 @@ export const ImageProperty = observer(
                                         clipboard.readImage().toDataURL()
                                     );
                                 }}
-                                title="Paste image from clipboard"
+                                title="从剪切板粘贴图像"
                             >
                                 <Icon icon="material:content_paste" size={16} />
                             </button>
@@ -167,7 +165,7 @@ export const ImageProperty = observer(
                                 onClick={() => {
                                     changeValue(undefined);
                                 }}
-                                title="Remove image"
+                                title="删除图像"
                             >
                                 <Icon icon="material:close" size={16} />
                             </button>

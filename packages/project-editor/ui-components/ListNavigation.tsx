@@ -104,10 +104,10 @@ const AddButton = observer(
         render() {
             return (
                 <IconAction
-                    title={`Add ${
+                    title={`添加 ${
                         this.props.navigationObject
                             ? getAddItemName(this.props.navigationObject)
-                            : "Item"
+                            : "项目"
                     }...`}
                     icon="material:add"
                     iconSize={16}

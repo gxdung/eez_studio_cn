@@ -997,8 +997,8 @@ export const Property = observer(
                                             }
                                         } else {
                                             info(
-                                                "Project not saved.",
-                                                "To be able to select folder you need to save the project first."
+                                                "项目未保存。",
+                                                "要选定文件夹，您需要先保存项目。"
                                             );
                                         }
                                     }}

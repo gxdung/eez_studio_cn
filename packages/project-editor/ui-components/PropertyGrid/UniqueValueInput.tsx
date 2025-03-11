@@ -182,7 +182,7 @@ export const UniqueValueInput = observer(
                                     className="btn btn-secondary"
                                     type="button"
                                     onClick={this.onOK}
-                                    title={"Commit Change (ENTER)"}
+                                    title={"提交更改 (ENTER)"}
                                 >
                                     <Icon icon="material:check" size={16} />
                                 </button>
@@ -190,7 +190,7 @@ export const UniqueValueInput = observer(
                                     className="btn btn-secondary"
                                     type="button"
                                     onClick={this.onCancel}
-                                    title={"Discard Change (ESC)"}
+                                    title={"放弃更改 (ESC)"}
                                 >
                                     <Icon icon="material:close" size={16} />
                                 </button>

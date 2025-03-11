@@ -179,9 +179,7 @@ export const ArrayProperty = observer(
                         iconSize={17}
                         onClick={this.collapseAll}
                         title={
-                            this.allCollapsed
-                                ? "Expand All Items"
-                                : "Collapse All Items"
+                            this.allCollapsed ? "展开所有项目" : "折叠所有项目"
                         }
                     />
                 );
@@ -194,7 +192,7 @@ export const ArrayProperty = observer(
                         icon="material:add"
                         iconSize={18}
                         onClick={this.onAdd}
-                        title="Add item"
+                        title="添加项目"
                     />
                 );
             }
@@ -1020,7 +1018,7 @@ const ArrayElementProperties = observer(
                             }
                             iconSize={18}
                             onClick={this.toggleCollapse}
-                            title="Add Item Before"
+                            title="在前面添加项目"
                         />
 
                         <div ref={this.refHeader}>
@@ -1044,7 +1042,7 @@ const ArrayElementProperties = observer(
                                 }
                                 iconSize={18}
                                 onClick={this.onAddBefore}
-                                title="Add Item Before"
+                                title="在前面添加项目"
                                 enabled={
                                     ArrayElementProperties.updateStartTime.get() ==
                                     undefined
@@ -1061,7 +1059,7 @@ const ArrayElementProperties = observer(
                                 }
                                 iconSize={18}
                                 onClick={this.onAddAfter}
-                                title="Add Item After"
+                                title="在后面添加项目"
                                 enabled={
                                     ArrayElementProperties.updateStartTime.get() ==
                                     undefined
@@ -1072,7 +1070,7 @@ const ArrayElementProperties = observer(
                                 icon="material:delete"
                                 iconSize={16}
                                 onClick={this.onDelete}
-                                title="Delete Item"
+                                title="删除项目"
                                 enabled={
                                     ArrayElementProperties.updateStartTime.get() ==
                                     undefined
@@ -1119,7 +1117,7 @@ const ArrayElementProperties = observer(
                                 }
                                 iconSize={16}
                                 onClick={this.onMoveUp}
-                                title="Move Up"
+                                title="向上移动"
                                 enabled={
                                     ArrayElementProperties.updateStartTime.get() ==
                                         undefined &&
@@ -1168,7 +1166,7 @@ const ArrayElementProperties = observer(
                                 }
                                 iconSize={16}
                                 onClick={this.onMoveDown}
-                                title="Move Down"
+                                title="向下移动"
                                 enabled={
                                     ArrayElementProperties.updateStartTime.get() ==
                                         undefined &&

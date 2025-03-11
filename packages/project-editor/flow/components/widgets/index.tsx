@@ -1626,7 +1626,7 @@ const UserWidgetPropertyGridUI = observer(
                         size="small"
                         onClick={this.showUserWidgetPage}
                     >
-                        Show User Widget
+                        显示用户组件
                     </Button>
                     <Button
                         color="secondary"
@@ -1634,7 +1634,7 @@ const UserWidgetPropertyGridUI = observer(
                         onClick={this.fitSize}
                         style={{ marginLeft: 10 }}
                     >
-                        Fit to User Widget Size
+                        适应用户组件大小
                     </Button>
                 </div>
             );
@@ -1659,7 +1659,7 @@ export class UserWidgetWidget extends Widget {
             makeDataPropertyInfo("context"),
             {
                 name: "userWidgetPageName",
-                displayName: "User widget",
+                displayName: "用户组件",
                 type: PropertyType.ObjectReference,
                 propertyGridGroup: specificGroup,
                 referencedObjectCollectionPath: "userWidgets"
@@ -1667,6 +1667,7 @@ export class UserWidgetWidget extends Widget {
             userPropertyValuesProperty,
             {
                 name: "customUI",
+                displayName: "自定义 UI",
                 type: PropertyType.Any,
                 propertyGridGroup: specificGroup,
                 computed: true,
@@ -1729,7 +1730,7 @@ export class UserWidgetWidget extends Widget {
                 messages.push(
                     new Message(
                         MessageType.ERROR,
-                        "Either user widget page or data must be set",
+                        "必须设置用户组件页面或数据。",
                         object
                     )
                 );
@@ -1738,7 +1739,7 @@ export class UserWidgetWidget extends Widget {
                     messages.push(
                         new Message(
                             MessageType.ERROR,
-                            "Both user widget page and data set, only user widget page is used",
+                            "同时存在用户组件页面和数据集，仅使用用户组件页面",
                             object
                         )
                     );
@@ -1751,17 +1752,14 @@ export class UserWidgetWidget extends Widget {
                     );
                     if (!userWidgetPage) {
                         messages.push(
-                            propertyNotFoundMessage(
-                                object,
-                                "userWidgetPageName"
-                            )
+                            propertyNotFoundMessage(object, "用户组件页面名称")
                         );
                     } else {
                         if (!userWidgetPage.isUsedAsUserWidget) {
                             messages.push(
                                 new Message(
                                     MessageType.ERROR,
-                                    `Page "${userWidgetPage.name}" is not an user widget page`,
+                                    `页面 "${userWidgetPage.name}" 不是用户组件页面`,
                                     object
                                 )
                             );
@@ -1771,7 +1769,7 @@ export class UserWidgetWidget extends Widget {
                             messages.push(
                                 new Message(
                                     MessageType.ERROR,
-                                    `Cycle detected in user widget page`,
+                                    `在用户组件页面中检测到循环`,
                                     getChildOfObject(
                                         object,
                                         "userWidgetPageName"
