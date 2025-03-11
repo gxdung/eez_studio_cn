@@ -65,10 +65,11 @@ export const WatchPanel = observer(
         onAddExpression = async () => {
             const result = await showGenericDialog({
                 dialogDefinition: {
-                    title: "New Watch Expression",
+                    title: "添加监视表达式",
                     fields: [
                         {
                             name: "expression",
+                            displayName: "表达式",
                             type: "string",
                             validators: [validators.required]
                         }
@@ -93,10 +94,11 @@ export const WatchPanel = observer(
 
             const result = await showGenericDialog({
                 dialogDefinition: {
-                    title: "Edit Watch Expression",
+                    title: "编辑监视表达式",
                     fields: [
                         {
                             name: "expression",
+                            displayName: "表达式",
                             type: "string",
                             validators: [validators.required]
                         }
@@ -145,14 +147,14 @@ export const WatchPanel = observer(
                                 key="add"
                                 icon="material:add"
                                 iconSize={20}
-                                title="Add Watch Expression"
+                                title="添加监视表达式"
                                 onClick={this.onAddExpression}
                             />,
                             <IconAction
                                 key="edit"
                                 icon="material:edit"
                                 iconSize={20}
-                                title="Edit Watch Expression"
+                                title="编辑监视表达式"
                                 onClick={this.onEditExpression}
                                 enabled={this.selectedExpression.get() != -1}
                             />,
@@ -160,7 +162,7 @@ export const WatchPanel = observer(
                                 key="delete"
                                 icon="material:delete"
                                 iconSize={20}
-                                title="Delete Watch Expression"
+                                title="删除监视表达式"
                                 onClick={this.onDeleteEpression}
                                 enabled={this.selectedExpression.get() != -1}
                             />
@@ -238,17 +240,17 @@ const WatchTable = observer(
 
             result.push({
                 name: "name",
-                title: "Name"
+                title: "名称"
             });
 
             result.push({
                 name: "value",
-                title: "Value"
+                title: "值"
             });
 
             result.push({
                 name: "type",
-                title: "Type"
+                title: "类型"
             });
 
             return result;
@@ -467,7 +469,7 @@ const WatchTable = observer(
 
             return observable({
                 id: "expressions",
-                name: "Expressions",
+                name: "表达式",
                 value: undefined,
                 type: "",
                 children: () =>
@@ -593,7 +595,7 @@ const WatchTable = observer(
         get globalVariables() {
             return observable({
                 id: "global-variables",
-                name: "Global variables",
+                name: "全局变量",
                 value: undefined,
                 type: "",
                 children: () =>
@@ -619,7 +621,7 @@ const WatchTable = observer(
 
             return observable({
                 id: "local-variables",
-                name: "Local variables",
+                name: "本地变量",
                 value: undefined,
                 type: "",
                 children: () =>
@@ -738,7 +740,7 @@ const WatchTable = observer(
 
             return observable({
                 id: "component-inputs",
-                name: "Component inputs",
+                name: "组件输入",
                 value: undefined,
                 type: "",
                 children: () =>

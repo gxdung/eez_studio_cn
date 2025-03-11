@@ -35,7 +35,7 @@ export const LogsPanel = observer(
                         title=""
                         buttons={[
                             <div key="filter">
-                                <span style={{ marginRight: 5 }}>Filter:</span>
+                                <span style={{ marginRight: 5 }}>过滤</span>
                                 <select
                                     className="form-select"
                                     value={
@@ -44,12 +44,14 @@ export const LogsPanel = observer(
                                     }
                                     onChange={this.onChangeFilter}
                                 >
-                                    <option value="all">All</option>
-                                    <option value="fatal">Fatal</option>
-                                    <option value="error">Error</option>
-                                    <option value="warning">Warning</option>
-                                    <option value="info">Info</option>
-                                    <option value="debug">Debug</option>
+                                    <option value="all">全部</option>
+                                    <option value="fatal">严重 Fatal</option>
+                                    <option value="error">错误 Error</option>
+                                    <option value="warning">
+                                        警告 Warning
+                                    </option>
+                                    <option value="info">信息 Info</option>
+                                    <option value="debug">调试 Debug</option>
                                     <option value="scpi">SCPI</option>
                                 </select>
                             </div>,

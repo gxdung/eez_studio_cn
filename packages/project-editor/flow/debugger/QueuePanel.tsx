@@ -23,7 +23,7 @@ export const QueuePanel = observer(
                         id="project-editor/debugger/queue"
                         title={
                             this.props.runtime.totalMemory != 0
-                                ? `Memory usage: ${memAlloc} of ${memTotal} (${Math.round(
+                                ? `内存使用: ${memAlloc} / ${memTotal} (${Math.round(
                                       (memAlloc * 100) / memTotal
                                   )}%)`
                                 : ""
@@ -40,7 +40,7 @@ export const QueuePanel = observer(
                                               </svg>
                                           }
                                           iconSize={16}
-                                          title="Resume (F5)"
+                                          title="继续执行 (F5)"
                                           onClick={() =>
                                               this.props.runtime.resume()
                                           }
@@ -57,7 +57,7 @@ export const QueuePanel = observer(
                                               </svg>
                                           }
                                           iconSize={16}
-                                          title="Pause (F6)"
+                                          title="暂停 (F6)"
                                           onClick={() =>
                                               this.props.runtime.pause()
                                           }
@@ -75,7 +75,7 @@ export const QueuePanel = observer(
                                           }
                                           iconSize={18}
                                           style={{ marginTop: 4 }}
-                                          title="Step over (F10)"
+                                          title="单步跳过 (F10)"
                                           onClick={() => {
                                               this.props.runtime.runSingleStep(
                                                   "step-over"
@@ -97,7 +97,7 @@ export const QueuePanel = observer(
                                           }
                                           iconSize={18}
                                           style={{ marginTop: 4 }}
-                                          title="Step into (F11)"
+                                          title="单步跳入 (F11)"
                                           onClick={() => {
                                               this.props.runtime.runSingleStep(
                                                   "step-into"
@@ -119,7 +119,7 @@ export const QueuePanel = observer(
                                           }
                                           iconSize={18}
                                           style={{ marginTop: 4 }}
-                                          title="Step out (Shift + F11)"
+                                          title="单步跳出 (Shift+F11)"
                                           onClick={() => {
                                               this.props.runtime.runSingleStep(
                                                   "step-out"

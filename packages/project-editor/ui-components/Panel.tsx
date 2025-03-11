@@ -32,7 +32,7 @@ export const Panel = observer(
                     tabIndex={this.props.tabIndex}
                     onFocus={this.props.onFocus}
                 >
-                    <div className="EezStudio_PanelHeader">
+                    <div className="EezStudio_PanelHeader" >
                         <span className="EezStudio_ProjectEditorPanelTitle">
                             {title}
                         </span>

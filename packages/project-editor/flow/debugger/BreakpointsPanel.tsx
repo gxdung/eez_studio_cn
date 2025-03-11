@@ -96,8 +96,8 @@ export const BreakpointsPanel = observer(
                     iconSize={16}
                     title={
                         this.allBreakpointsEnabled
-                            ? "Disable all breakpoints"
-                            : "Enable all breakpoints"
+                            ? "禁用所有断点"
+                            : "启用所有断点"
                     }
                     onClick={this.toggleEnableAll}
                     enabled={this.context.uiStateStore.breakpoints.size > 0}
@@ -106,7 +106,7 @@ export const BreakpointsPanel = observer(
                     key="remove-selected"
                     icon={"material:delete"}
                     iconSize={16}
-                    title="Remove selected breakpoint"
+                    title="移除选中断点"
                     onClick={this.removeSelected}
                     enabled={
                         !!this.context.uiStateStore.selectedBreakpoint.get()
@@ -116,7 +116,7 @@ export const BreakpointsPanel = observer(
                     key="remove-all"
                     icon={"material:delete_sweep"}
                     iconSize={16}
-                    title="Remove all breakpoints"
+                    title="移除全部断点"
                     onClick={this.removeAll}
                     enabled={this.context.uiStateStore.breakpoints.size > 0}
                 />
