@@ -51,7 +51,7 @@ export class ActionStartLogItem extends LogItem {
     }
 
     get label() {
-        return `Action start: ${getLabel(this.flowState!.flow)}`;
+        return `操作执行: ${getLabel(this.flowState!.flow)}`;
     }
 }
 
@@ -61,7 +61,7 @@ export class ActionEndLogItem extends LogItem {
     }
 
     get label() {
-        return `Action end: ${getLabel(this.flowState!.flow)}`;
+        return `操作完成: ${getLabel(this.flowState!.flow)}`;
     }
 }
 
@@ -77,7 +77,7 @@ export class ExecuteComponentLogItem extends LogItem {
     }
 
     get label() {
-        return `Execute component: ${getQueueTaskLabel(this.queueTask)}`;
+        return `执行组件: ${getQueueTaskLabel(this.queueTask)}`;
     }
 }
 
@@ -87,7 +87,7 @@ export class ExecuteWidgetActionLogItem extends LogItem {
     }
 
     get label() {
-        return `Execute widget action: ${getLabel(this.component!)}`;
+        return `执行组件操作: ${getLabel(this.component!)}`;
     }
 }
 
@@ -97,7 +97,7 @@ export class WidgetActionNotDefinedLogItem extends LogItem {
     }
 
     get label() {
-        return `Widget action not defined: ${getLabel(this.component!)}`;
+        return `组件操作未定义: ${getLabel(this.component!)}`;
     }
 }
 
@@ -107,7 +107,7 @@ export class WidgetActionNotFoundLogItem extends LogItem {
     }
 
     get label() {
-        return `Widget action not found: ${(this.component as Widget).action}`;
+        return `组件操作未找到: ${(this.component as Widget).action}`;
     }
 }
 
@@ -121,9 +121,7 @@ export class NoConnectionLogItem extends LogItem {
     }
 
     get label() {
-        return `Action ${getLabel(
-            this.component!
-        )} has no connection from output ${this.output}`;
+        return `操作 ${getLabel(this.component!)} 没有输出连接 ${this.output}`;
     }
 }
 
@@ -151,13 +149,13 @@ export class OutputValueLogItem extends LogItem {
             }
         }
 
-        return `Output value from [${
+        return `输出值来自 [${
             this.output ||
             getOutputDisplayName(
                 this.connectionLine.sourceComponent,
                 this.connectionLine.output
             )
-        }] to [${getLabel(
+        }] 到 [${getLabel(
             this.connectionLine.targetComponent!
         )}/${getInputDisplayName(
             this.connectionLine.targetComponent,
@@ -172,7 +170,7 @@ export class ExecutionErrorLogItem extends LogItem {
     }
 
     get label() {
-        return `Execution error in ${getLabel(
+        return `执行错误: ${getLabel(
             this.component!
         )}: ${this.error.toString()}`;
     }
@@ -184,7 +182,7 @@ export class NoStartActionComponentLogItem extends LogItem {
     }
 
     get label() {
-        return `There is no StartActionComponent`;
+        return `没有 StartactionComponent`;
     }
 }
 

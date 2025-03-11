@@ -63,30 +63,36 @@ export class ConnectionLine extends EezObject {
         properties: [
             {
                 name: "description",
+                displayName: "描述",
                 type: PropertyType.String
             },
             {
                 name: "source",
+                displayName: "来源",
                 type: PropertyType.String,
                 hideInPropertyGrid: true
             },
             {
                 name: "output",
+                displayName: "输出",
                 type: PropertyType.String,
                 hideInPropertyGrid: true
             },
             {
                 name: "target",
+                displayName: "目标",
                 type: PropertyType.String,
                 hideInPropertyGrid: true
             },
             {
                 name: "input",
+                displayName: "输入",
                 type: PropertyType.String,
                 hideInPropertyGrid: true
             },
             {
                 name: "disabled",
+                displayName: "禁用",
                 type: PropertyType.Boolean,
                 checkboxStyleSwitch: true
             }

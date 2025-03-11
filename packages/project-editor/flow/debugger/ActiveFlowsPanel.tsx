@@ -29,7 +29,6 @@ export const ActiveFlowsPanel = observer(
                                 className="form-check"
                                 style={{
                                     minHeight: "auto",
-                                    // padding: "5px 10px 5px 0",
                                     margin: 0
                                 }}
                             >
@@ -54,7 +53,7 @@ export const ActiveFlowsPanel = observer(
                                     className="form-check-label"
                                     htmlFor="EezStudio_DebuggerPanel_ActiveFlows_ShowFinishedFlows"
                                 >
-                                    显示已完成工作流
+                                    显示已完成的工作流
                                 </label>
                             </div>
                         ]}

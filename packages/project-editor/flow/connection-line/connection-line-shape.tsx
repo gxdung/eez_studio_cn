@@ -591,7 +591,7 @@ export const ConnectionLineParams = observer(
                                     className="form-check-label"
                                     htmlFor="ConnectionLineParams_UseNodeRed"
                                 >
-                                    Use NodeRED algorithm
+                                    使用 NodeRED 算法
                                 </label>
                             </div>
                         </div>
