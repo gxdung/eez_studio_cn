@@ -75,7 +75,7 @@ const propertyMenu = (props: PropertyProps): Electron.MenuItem[] => {
         if (cssAttributeName) {
             menuItems.push(
                 new MenuItem({
-                    label: "Help",
+                    label: "帮助",
                     click: () => {
                         openCssHelpPage(cssAttributeName);
                     }
@@ -94,7 +94,7 @@ const backgroundColorPropertyMenu = (
 
     menuItems.push(
         new MenuItem({
-            label: "Transparent",
+            label: "透明",
             click: () => {
                 props.objects.forEach(object =>
                     updateObject(object, {
@@ -124,6 +124,7 @@ const backgroundColorPropertyMenu = (
 const conditionalStyleConditionProperty = makeExpressionProperty(
     {
         name: "condition",
+        displayName: "条件",
         type: PropertyType.MultilineText
     },
     "boolean"
@@ -137,6 +138,7 @@ export class ConditionalStyle extends EezObject {
         properties: [
             {
                 name: "style",
+                displayName: "样式",
                 type: PropertyType.ObjectReference,
                 referencedObjectCollectionPath: "allStyles"
             },
@@ -234,6 +236,7 @@ function styleNameUnique(
 
 const nameProperty: PropertyInfo = {
     name: "name",
+    displayName: "名称",
     type: PropertyType.String,
     unique: (
         style: Style,
@@ -251,12 +254,14 @@ const nameProperty: PropertyInfo = {
 
 const descriptionProperty: PropertyInfo = {
     name: "description",
+    displayName: "描述",
     type: PropertyType.MultilineText,
     disabled: isWidgetParentOfStyle
 };
 
 const useStyleProperty: PropertyInfo = {
     name: "useStyle",
+    displayName: "使用样式",
     type: PropertyType.ObjectReference,
     referencedObjectCollectionPath: "allStyles",
     propertyMenu: (props: PropertyProps): Electron.MenuItem[] => {
@@ -267,7 +272,7 @@ const useStyleProperty: PropertyInfo = {
         if (isAnyPropertyModified(props)) {
             menuItems.push(
                 new MenuItem({
-                    label: "Reset All Modifications",
+                    label: "重置所有修改",
                     click: () => {
                         const propertyValues: any = {};
                         properties.forEach(propertyInfo => {
@@ -293,6 +298,7 @@ const useStyleProperty: PropertyInfo = {
                                     fields: [
                                         {
                                             name: "name",
+                                            displayName: "名称",
                                             type: "string",
                                             validators: [
                                                 validators.required,
@@ -405,6 +411,7 @@ const useStyleProperty: PropertyInfo = {
 
 export const conditionalStylesProperty: PropertyInfo = {
     name: "conditionalStyles",
+    displayName: "条件样式",
     type: PropertyType.Array,
     typeClass: ConditionalStyle,
     partOfNavigation: false,
@@ -425,6 +432,7 @@ export const conditionalStylesProperty: PropertyInfo = {
 
 const fontProperty: PropertyInfo = {
     name: "font",
+    displayName: "字体",
     type: PropertyType.ObjectReference,
     referencedObjectCollectionPath: "fonts",
     defaultValue: undefined,
@@ -434,6 +442,7 @@ const fontProperty: PropertyInfo = {
 
 const fontFamilyProperty: PropertyInfo = {
     name: "fontFamily",
+    displayName: "字体系列",
     type: PropertyType.String,
     defaultValue: undefined,
     inheritable: true,
@@ -444,6 +453,7 @@ const fontFamilyProperty: PropertyInfo = {
 
 const fontSizeProperty: PropertyInfo = {
     name: "fontSize",
+    displayName: "字体大小",
     type: PropertyType.String,
     defaultValue: undefined,
     inheritable: true,
@@ -454,6 +464,7 @@ const fontSizeProperty: PropertyInfo = {
 
 const fontWeightProperty: PropertyInfo = {
     name: "fontWeight",
+    displayName: "字重",
     type: PropertyType.Enum,
     enumItems: [
         {
@@ -505,6 +516,7 @@ const fontWeightProperty: PropertyInfo = {
 
 const fontStyleProperty: PropertyInfo = {
     name: "fontStyle",
+    displayName: "字体样式",
     type: PropertyType.Enum,
     enumItems: [
         {
@@ -526,6 +538,7 @@ const fontStyleProperty: PropertyInfo = {
 
 const alignHorizontalProperty: PropertyInfo = {
     name: "alignHorizontal",
+    displayName: "水平对齐",
     type: PropertyType.Enum,
     enumItems: [
         {
@@ -544,6 +557,7 @@ const alignHorizontalProperty: PropertyInfo = {
 
 const alignVerticalProperty: PropertyInfo = {
     name: "alignVertical",
+    displayName: "垂直对齐",
     type: PropertyType.Enum,
     enumItems: [
         {
@@ -562,6 +576,7 @@ const alignVerticalProperty: PropertyInfo = {
 
 const directionProperty: PropertyInfo = {
     name: "direction",
+    displayName: "方向",
     type: PropertyType.Enum,
     enumItems: [
         {
@@ -586,6 +601,7 @@ const directionProperty: PropertyInfo = {
 
 const colorProperty: PropertyInfo = {
     name: "color",
+    displayName: "颜色",
     type: PropertyType.ThemedColor,
     referencedObjectCollectionPath: "colors",
     defaultValue: "#ffffff",
@@ -596,6 +612,7 @@ const colorProperty: PropertyInfo = {
 
 const backgroundColorProperty: PropertyInfo = {
     name: "backgroundColor",
+    displayName: "背景颜色",
     type: PropertyType.ThemedColor,
     referencedObjectCollectionPath: "colors",
     defaultValue: "#000000",
@@ -606,6 +623,7 @@ const backgroundColorProperty: PropertyInfo = {
 
 const backgroundImageProperty: PropertyInfo = {
     name: "backgroundImage",
+    displayName: "背景图像",
     type: PropertyType.ObjectReference,
     referencedObjectCollectionPath: "bitmaps",
     inheritable: true,
@@ -614,6 +632,7 @@ const backgroundImageProperty: PropertyInfo = {
 
 const activeColorProperty: PropertyInfo = {
     name: "activeColor",
+    displayName: "激活背景颜色",
     type: PropertyType.ThemedColor,
     referencedObjectCollectionPath: "colors",
     defaultValue: "#000000",
@@ -625,7 +644,7 @@ const activeColorProperty: PropertyInfo = {
 
 const activeBackgroundColorProperty: PropertyInfo = {
     name: "activeBackgroundColor",
-    displayName: "Active back. color",
+    displayName: "激活背景颜色",
     type: PropertyType.ThemedColor,
     referencedObjectCollectionPath: "colors",
     defaultValue: "#ffffff",
@@ -637,6 +656,7 @@ const activeBackgroundColorProperty: PropertyInfo = {
 
 const focusColorProperty: PropertyInfo = {
     name: "focusColor",
+    displayName: "焦点颜色",
     type: PropertyType.ThemedColor,
     referencedObjectCollectionPath: "colors",
     defaultValue: "#ffffff",
@@ -648,7 +668,7 @@ const focusColorProperty: PropertyInfo = {
 
 const focusBackgroundColorProperty: PropertyInfo = {
     name: "focusBackgroundColor",
-    displayName: "Focus back. color",
+    displayName: "焦点背景颜色",
     type: PropertyType.ThemedColor,
     referencedObjectCollectionPath: "colors",
     defaultValue: "#000000",
@@ -660,6 +680,7 @@ const focusBackgroundColorProperty: PropertyInfo = {
 
 const borderSizeProperty: PropertyInfo = {
     name: "borderSize",
+    displayName: "边框大小",
     type: PropertyType.String,
     defaultValue: "0",
     inheritable: true,
@@ -669,6 +690,7 @@ const borderSizeProperty: PropertyInfo = {
 
 const borderRadiusProperty: PropertyInfo = {
     name: "borderRadius",
+    displayName: "边框圆角",
     type: PropertyType.String,
     defaultValue: "0",
     inheritable: true,
@@ -678,6 +700,7 @@ const borderRadiusProperty: PropertyInfo = {
 
 const borderColorProperty: PropertyInfo = {
     name: "borderColor",
+    displayName: "边框颜色",
     type: PropertyType.ThemedColor,
     referencedObjectCollectionPath: "colors",
     defaultValue: "#000000",
@@ -688,6 +711,7 @@ const borderColorProperty: PropertyInfo = {
 
 const borderStyleProperty: PropertyInfo = {
     name: "borderStyle",
+    displayName: "边框样式",
     type: PropertyType.Enum,
     enumItems: [
         {
@@ -730,6 +754,7 @@ const borderStyleProperty: PropertyInfo = {
 
 const paddingProperty: PropertyInfo = {
     name: "padding",
+    displayName: "内边距",
     type: PropertyType.String,
     defaultValue: "0",
     cssAttributeName: "padding",
@@ -739,6 +764,7 @@ const paddingProperty: PropertyInfo = {
 
 const marginProperty: PropertyInfo = {
     name: "margin",
+    displayName: "外边距",
     type: PropertyType.String,
     defaultValue: "0",
     inheritable: true,
@@ -747,6 +773,7 @@ const marginProperty: PropertyInfo = {
 
 const opacityProperty: PropertyInfo = {
     name: "opacity",
+    displayName: "透明度",
     type: PropertyType.Number,
     defaultValue: "255",
     cssAttributeName: "opacity",
@@ -756,6 +783,7 @@ const opacityProperty: PropertyInfo = {
 
 const boxShadowProperty: PropertyInfo = {
     name: "boxShadow",
+    displayName: "阴影效果",
     type: PropertyType.String,
     defaultValue: undefined,
     inheritable: true,
@@ -766,6 +794,7 @@ const boxShadowProperty: PropertyInfo = {
 
 const blinkProperty: PropertyInfo = {
     name: "blink",
+    displayName: "闪烁",
     type: PropertyType.Boolean,
     defaultValue: false,
     inheritable: true,
@@ -774,7 +803,7 @@ const blinkProperty: PropertyInfo = {
 
 const cssProperty: PropertyInfo = {
     name: "css",
-    displayName: "Additional CSS",
+    displayName: "额外的 CSS",
     type: PropertyType.CSS,
     cssAttributeName: "css",
     nonInheritable: true,
@@ -785,7 +814,7 @@ const cssProperty: PropertyInfo = {
 export const dynamicCssProperty = makeExpressionProperty(
     {
         name: "dynamicCSS",
-        displayName: "Dynamic CSS",
+        displayName: "动态 CSS",
         type: PropertyType.MultilineText,
         disabled: (object: IEezObject, propertyInfo: PropertyInfo) => {
             if (isNotDashboardProject(object)) {
@@ -807,7 +836,7 @@ export const dynamicCssProperty = makeExpressionProperty(
 
 const cssPreviewProperty: PropertyInfo = {
     name: "cssPreview",
-    displayName: "CSS preview",
+    displayName: "CSS 预览",
     type: PropertyType.CSS,
     disabled: isNotDashboardProject,
     readOnlyInPropertyGrid: true,
@@ -816,7 +845,7 @@ const cssPreviewProperty: PropertyInfo = {
 
 const alwaysBuildProperty: PropertyInfo = {
     name: "alwaysBuild",
-    displayName: "Always add to the generated code",
+    displayName: "始终添加到生成的代码中",
     type: PropertyType.Boolean,
     defaultValue: false,
     inheritable: false,
@@ -2419,10 +2448,10 @@ export function getAdditionalStyleFlowProperties(widget: Widget) {
 const feature: ProjectEditorFeature = {
     name: "eezstudio-project-feature-style",
     version: "0.1.0",
-    description: "Styles support for your project",
+    description: "样式支持",
     author: "EEZ",
     authorLogo: "../eez-studio-ui/_images/eez_logo.png",
-    displayName: "Styles",
+    displayName: "样式",
     mandatory: true,
     key: "styles",
     type: PropertyType.Array,
@@ -2443,9 +2472,7 @@ const feature: ProjectEditorFeature = {
             messages.push(
                 new Message(
                     MessageType.ERROR,
-                    `Themes are defined in multiple projects: ${projectNames.join(
-                        ", "
-                    )}`
+                    `主题在多个项目中定义： ${projectNames.join(", ")}`
                 )
             );
         }
